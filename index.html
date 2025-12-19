@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Instagram Photo Feed with Bootstrap</title>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar bg-light position-sticky top-0 z-2">
+    <div class="container-lg">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-instagram"></i>
+        <span>Instagram</span>
+      </a>
+      <div>
+        <!-- Button trigger modal -->
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newpost-modal">
+          Create a New Post
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="newpost-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modal-title">
+                  Create a New Post
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <!-- Modal Body -->
+              <div class="modal-body">
+                <label for="modal-text" class="form-label">Caption:</label>
+                <textarea id="caption" class="form-control"></textarea>
+                <div class="my-3">
+                  <button class="btn btn-light border">
+                    <i class="bi bi-camera-fill"></i>
+                  </button>
+                  <button class="btn btn-light border">
+                    <i class="bi bi-geo-alt-fill"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal" aria-label="Close">
+                  Close
+                </button>
+                <button class="btn btn-success" type="submit">Publish</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="dropdown-center d-inline-block">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-gear-fill"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Accesibility</a></li>
+            <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+          </ul>
+        </div>
+        <!-- end Dropdown -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Nav Tabs -->
+  <ul class="nav my-2 justify-content-center" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="grid-feed-tab" data-bs-toggle="tab" data-bs-target="#grid-feed" type="button"
+        role="tab" aria-controls="grid-feed" aria-selected="true">
+        <i class="bi bi-grid-fill"></i>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="column-feed-tab" data-bs-toggle="tab" data-bs-target="#column-feed" type="button"
+        role="tab" aria-controls="column-feed" aria-selected="false">
+        <i class="bi bi-images"></i>
+      </button>
+    </li>
+  </ul>
+
+
+  <!-- Tab Panes -->
+  <div class="tab-content">
+    <!-- Grid Feed Content -->
+    <div class="tab-pane fade active show" id="grid-feed" role="tabpanel" aria-labelledby="grid-feed-tab" tabindex="0">
+      <div class="container-lg p-0 p-lg-1">
+        <div class="row g-1">
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1596854372745-0906a0593bca?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 1" />
+          </div>
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1583687534963-565854a3d6d8?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 2" />
+          </div>
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1537460186220-8cd3f80f24e7?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 3" />
+          </div>
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1763924257989-74ee347265c2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 4" />
+          </div>
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1761431070916-b180ead23a39?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 5" />
+          </div>
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1756902814162-c6db35adb130?q=80&w=881&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 6" />
+          </div>
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1713905469493-3aa9d2510619?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 7" />
+          </div>
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1652984588093-ff625b701138?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 8" />
+          </div>
+          <div class="col-12 col-sm-4">
+            <img class="img-fluid"
+              src="https://images.unsplash.com/photo-1606041971253-f8f3b110a508?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="cat 9" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column Feed Content -->
+    <div class="tab-pane fade" id="column-feed" role="tabpanel" aria-labelledby="column-feed-tab" tabindex="0">
+      <div class="row row-cols-1 g-4 m-auto fixed-width my-5">
+        <!-- card 1 -->
+        <div class="col-12 mt-0">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">Studio Pose</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1596854372745-0906a0593bca?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="..." />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                Sitting perfectly still like this is a professional photoshoot and not a random moment captured by
+                chance. Calm posture, confident gaze, and the quiet knowledge that this angle is working in their favor.
+                <span class="text-primary fw-bold">#CatModel #MainCharacterEnergy</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- card 2 -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">Solar Mode</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1583687534963-565854a3d6d8?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="..." />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                Fully stretched out, eyes closed, soaking up the sunlight as if it were their only responsibility today.
+                No thoughts, no worries, just the slow and very serious process of recharging.
+                <span class="text-primary fw-bold">#SunCat #NoThoughtsJustVibes</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- card 3 -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">Seaside Philosopher</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1537460186220-8cd3f80f24e7?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="..." />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                Lying by the water, listening to the waves and staring into the distance like they’re contemplating
+                life, existence, and whether snacks will arrive soon.
+                <span class="text-primary fw-bold">#BeachCat #DeepCatThoughts</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- card 4 -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">Careful Business</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1763924257989-74ee347265c2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="cat 4" />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                Taking each step with extreme caution, fully aware that one wrong move could result in embarrassment.
+                This is not playtime, this is serious focus and precision.
+                <span class="text-primary fw-bold">#SeriousCat #ParkourEnergy</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- card 5 -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">Surveillance Mode</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1761431070916-b180ead23a39?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="cat 4" />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                Sitting completely still, ears tuned in every direction, eyes locked on something only they can see.
+                Whatever moved nearby has officially been noticed and mentally logged.
+                <span class="text-primary fw-bold">#AlertCat #AlwaysWatching</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- card 6 -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">If I Fits</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1756902814162-c6db35adb130?q=80&w=881&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="cat 4" />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                The bowl may not have been designed for this purpose, but that is irrelevant. It fits just enough, it
+                feels correct, and therefore it is now a perfectly valid resting spot.
+                <span class="text-primary fw-bold">#IfIFitsISits #CatLaw</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- card 7 -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">Outdoor Expansion Pack</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1713905469493-3aa9d2510619?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="cat 4" />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                Experiencing the outdoors with wide eyes and cautious steps, wondering why the ground moves, the air
+                smells different, and the human insists this is “fun.”
+                <span class="text-primary fw-bold">#AdventureCat #OutsideIsWeird</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- card 8 -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">Silent Judgment</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1652984588093-ff625b701138?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="cat 4" />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                Watching quietly from a distance, completely relaxed but deeply aware of everything happening. No
+                reaction, no movement, just silent observation and unspoken opinions.
+                <span class="text-primary fw-bold">#JudgyCat #SilentObserver</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- card 9 -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between py-3">
+              <h2 class="h5 m-0 fw-bold">Zoomed Perspective</h2>
+              <p class="m-0 p-0 text-secondary">08/26</p>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1606041971253-f8f3b110a508?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="" alt="cat 4" />
+            <div class="card-body">
+              <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
+              <p class="card-text">
+                Staring directly into the camera with wide eyes, unbothered by personal space and fully committed to
+                holding eye contact for just a second too long.
+                <span class="text-primary fw-bold">#CatCloseUp #UncomfortableEyeContact</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

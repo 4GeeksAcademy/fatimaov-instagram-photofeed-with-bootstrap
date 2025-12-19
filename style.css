@@ -1,0 +1,10 @@
+.fixed-width {
+    max-width: 600px;
+}
+
+#grid-feed,
+#column-feed {
+    /* 112px = 56px(Nav Bar height) + 56px(Nav Bar height) */
+    height: calc(100vh - 112px);
+    overflow: scroll;
+}
