@@ -4,7 +4,23 @@
 
 #grid-feed,
 #column-feed {
-    /* 112px = 56px(Nav Bar height) + 56px(Nav Bar height) */
+    /* 112px = 56px(Nav Bar height) + 56px(Nav Tabs height) */
     height: calc(100vh - 112px);
     overflow: scroll;
 }
+
+.nav {
+    --bs-nav-link-color: var(--bs-secondary);
+	--bs-nav-link-hover-color: var(--bs-primary);
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+.carousel-indicators {
+    margin-bottom: 2px;
+}
+

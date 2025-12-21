@@ -8,12 +8,12 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./style.css">
+  <!-- JS Script -->
+   <script src="./script.js" type="module"></script>
 
   <title>Instagram Photo Feed with Bootstrap</title>
 </head>
@@ -22,19 +22,21 @@
   <!-- Nav Bar -->
   <nav class="navbar bg-light">
     <div class="container-lg">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="#" id="navbar-logo">
         <i class="bi bi-instagram"></i>
         <span>Instagram</span>
       </a>
       <div>
         <!-- Button trigger modal -->
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newpost-modal">
-          Create a New Post
+        <button class="btn btn-success d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#newpost-modal">
+          Create New Post
         </button>
-
+        <button class="btn btn-success d-sm-none" data-bs-toggle="modal" data-bs-target="#newpost-modal">
+          <i class="bi bi-plus-lg" style="text-shadow: 0 0 0 currentColor;"></i>
+        </button>
         <!-- Modal -->
         <div class="modal fade" id="newpost-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <!-- Modal Header -->
               <div class="modal-header">
@@ -45,13 +47,15 @@
               </div>
               <!-- Modal Body -->
               <div class="modal-body">
+                <label for="modal-text" class="form-label">Title:</label>
+                <input type="text" class="form-control mb-3" id="newPostTitle">
                 <label for="modal-text" class="form-label">Caption:</label>
-                <textarea id="caption" class="form-control"></textarea>
+                <textarea id="newPostCaption" class="form-control"></textarea>
                 <div class="my-3">
-                  <button class="btn btn-light border">
+                  <button class="btn btn-light border tt" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="upload image">
                     <i class="bi bi-camera-fill"></i>
                   </button>
-                  <button class="btn btn-light border">
+                  <button class="btn btn-light border tt" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="add location">
                     <i class="bi bi-geo-alt-fill"></i>
                   </button>
                 </div>
@@ -90,7 +94,7 @@
 
   <!-- Nav Tabs -->
   <ul class="nav my-2 justify-content-center" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
+    <li class="nav-item " role="presentation">
       <button class="nav-link active" id="grid-feed-tab" data-bs-toggle="tab" data-bs-target="#grid-feed" type="button"
         role="tab" aria-controls="grid-feed" aria-selected="true">
         <i class="bi bi-grid-fill"></i>
@@ -111,50 +115,77 @@
     <div class="tab-pane fade active show" id="grid-feed" role="tabpanel" aria-labelledby="grid-feed-tab" tabindex="0">
       <div class="container-lg p-0 p-lg-1">
         <div class="row g-1">
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1596854372745-0906a0593bca?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 1" />
+          <!-- modal trigger 1 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-1" class="modal-target">
+              <img class="img-fluid modal-img"
+                src="https://images.unsplash.com/photo-1596854372745-0906a0593bca?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 1" />
+            </a>
           </div>
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1583687534963-565854a3d6d8?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 2" />
+          <!-- modal trigger 2 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-2" class="modal-target">
+              <img class="img-fluid modal-img"
+                src="https://images.unsplash.com/photo-1583687534963-565854a3d6d8?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 2" />
+            </a>
           </div>
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1537460186220-8cd3f80f24e7?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 3" />
+          <!-- modal trigger 3 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-3" class="modal-target">
+              <img class="img-fluid modal-img"
+                src="https://images.unsplash.com/photo-1537460186220-8cd3f80f24e7?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 3" />
+            </a>
           </div>
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1763924257989-74ee347265c2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 4" />
+          <!-- modal trigger 4 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-4" class="modal-target">
+              <img class="img-fluid modal-img"
+                src="https://images.unsplash.com/photo-1763924257989-74ee347265c2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 4" />
+            </a>
           </div>
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1761431070916-b180ead23a39?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 5" />
+          <!-- modal trigger 5 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-5" class="modal-target">
+              <img class="img-fluid modal-img"
+                src="https://images.unsplash.com/photo-1761431070916-b180ead23a39?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 5" />
+            </a>
           </div>
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1756902814162-c6db35adb130?q=80&w=881&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 6" />
+          <!-- modal trigger 6 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-6" class="modal-target">
+              <img class="img-fluid modal-img"
+                src="https://images.unsplash.com/photo-1756902814162-c6db35adb130?q=80&w=881&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 6"/>
+            </a>
           </div>
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1713905469493-3aa9d2510619?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 7" />
+          <!-- modal trigger 7 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-7" class="modal-target">
+              <img class="img-fluid modal-img"
+                src="https://images.unsplash.com/photo-1713905469493-3aa9d2510619?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 7" />
+            </a>
           </div>
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1652984588093-ff625b701138?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 8" />
+          <!-- modal trigger 8 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-8" class="modal-target">
+              <img class="img-fluid modal-img"
+                src="https://images.unsplash.com/photo-1652984588093-ff625b701138?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 8" />
+            </a>
           </div>
-          <div class="col-12 col-sm-4">
-            <img class="img-fluid"
-              src="https://images.unsplash.com/photo-1606041971253-f8f3b110a508?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="cat 9" />
+          <!-- modal trigger 9 -->
+          <div class="col-12 col-sm-4 modal-trigger">
+            <a href="" data-bs-toggle="modal" data-bs-target="#cat-modal-9" class="modal-target">
+              <img class="img-fluid modal-img" 
+                src="https://images.unsplash.com/photo-1606041971253-f8f3b110a508?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="cat 9" />
+            </a>
           </div>
         </div>
       </div>
@@ -162,20 +193,56 @@
 
     <!-- Column Feed Content -->
     <div class="tab-pane fade" id="column-feed" role="tabpanel" aria-labelledby="column-feed-tab" tabindex="0">
-      <div class="row row-cols-1 g-4 m-auto fixed-width my-5">
+      <div class="row row-cols-1 gy-4 m-auto fixed-width my-5 p-0">
         <!-- card 1 -->
         <div class="col-12 mt-0">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">Studio Pose</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">Studio Pose</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
-            <img
-              src="https://images.unsplash.com/photo-1596854372745-0906a0593bca?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="" alt="..." />
+            <!-- 1 carousel -->
+            <div id="carouselExampleIndicators" class="carousel slide">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                  aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                  aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.unsplash.com/photo-1596854372745-0906a0593bca?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1596854372407-baba7fef6e51?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <!-- end carousel 1 -->
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 Sitting perfectly still like this is a professional photoshoot and not a random moment captured by
                 chance. Calm posture, confident gaze, and the quiet knowledge that this angle is working in their favor.
                 <span class="text-primary fw-bold">#CatModel #MainCharacterEnergy</span>
@@ -187,7 +254,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">Solar Mode</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">Solar Mode</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
             <img
@@ -195,7 +262,7 @@
               class="" alt="..." />
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 Fully stretched out, eyes closed, soaking up the sunlight as if it were their only responsibility today.
                 No thoughts, no worries, just the slow and very serious process of recharging.
                 <span class="text-primary fw-bold">#SunCat #NoThoughtsJustVibes</span>
@@ -207,7 +274,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">Seaside Philosopher</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">Seaside Philosopher</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
             <img
@@ -215,7 +282,7 @@
               class="" alt="..." />
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 Lying by the water, listening to the waves and staring into the distance like they’re contemplating
                 life, existence, and whether snacks will arrive soon.
                 <span class="text-primary fw-bold">#BeachCat #DeepCatThoughts</span>
@@ -227,7 +294,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">Careful Business</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">Careful Business</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
             <img
@@ -235,7 +302,7 @@
               class="" alt="cat 4" />
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 Taking each step with extreme caution, fully aware that one wrong move could result in embarrassment.
                 This is not playtime, this is serious focus and precision.
                 <span class="text-primary fw-bold">#SeriousCat #ParkourEnergy</span>
@@ -247,7 +314,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">Surveillance Mode</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">Surveillance Mode</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
             <img
@@ -255,7 +322,7 @@
               class="" alt="cat 4" />
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 Sitting completely still, ears tuned in every direction, eyes locked on something only they can see.
                 Whatever moved nearby has officially been noticed and mentally logged.
                 <span class="text-primary fw-bold">#AlertCat #AlwaysWatching</span>
@@ -267,7 +334,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">If I Fits</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">If I Fits</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
             <img
@@ -275,7 +342,7 @@
               class="" alt="cat 4" />
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 The bowl may not have been designed for this purpose, but that is irrelevant. It fits just enough, it
                 feels correct, and therefore it is now a perfectly valid resting spot.
                 <span class="text-primary fw-bold">#IfIFitsISits #CatLaw</span>
@@ -287,7 +354,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">Outdoor Expansion Pack</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">Outdoor Expansion Pack</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
             <img
@@ -295,7 +362,7 @@
               class="" alt="cat 4" />
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 Experiencing the outdoors with wide eyes and cautious steps, wondering why the ground moves, the air
                 smells different, and the human insists this is “fun.”
                 <span class="text-primary fw-bold">#AdventureCat #OutsideIsWeird</span>
@@ -307,7 +374,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">Silent Judgment</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">Silent Judgment</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
             <img
@@ -315,7 +382,7 @@
               class="" alt="cat 4" />
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 Watching quietly from a distance, completely relaxed but deeply aware of everything happening. No
                 reaction, no movement, just silent observation and unspoken opinions.
                 <span class="text-primary fw-bold">#JudgyCat #SilentObserver</span>
@@ -327,7 +394,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-white d-flex justify-content-between py-3">
-              <h2 class="h5 m-0 fw-bold">Zoomed Perspective</h2>
+              <h2 class="h5 m-0 fw-bold modal-h2">Zoomed Perspective</h2>
               <p class="m-0 p-0 text-secondary">08/26</p>
             </div>
             <img
@@ -335,17 +402,14 @@
               class="" alt="cat 4" />
             <div class="card-body">
               <p class="fw-bold"><i class="bi bi-heart-fill"></i> 204 likes</p>
-              <p class="card-text">
+              <p class="card-text modal-caption">
                 Staring directly into the camera with wide eyes, unbothered by personal space and fully committed to
                 holding eye contact for just a second too long.
-                <span class="text-primary fw-bold">#CatCloseUp #UncomfortableEyeContact</span>
+                <span class="text-primary fw-bold" id="cat-9-column-hashtag">#CatCloseUp #UncomfortableEyeContact</span>
               </p>
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </div>
@@ -355,6 +419,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
-</body>
 
+
+  
+
+</body>
 </html>
