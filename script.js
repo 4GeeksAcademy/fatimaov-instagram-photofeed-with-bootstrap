@@ -49,5 +49,21 @@ document.getElementById('navbar-logo').onclick = () => {
     window.location.reload();
 };
 
+// Active Column/Grid Feed tab button turns blue
+const gridFeed = document.getElementById('grid-feed-tab');
+const columnFeed = document.getElementById('column-feed-tab');
+
+gridFeed.style.color = 'var(--bs-primary)';
+
+gridFeed.onclick = () => {
+    gridFeed.style.color = 'var(--bs-primary)';
+    columnFeed.style.color = 'var(--bs-secondary)';
+};
+
+columnFeed.onclick = () => {
+    columnFeed.style.color = 'var(--bs-primary)';
+    gridFeed.style.color = 'var(--bs-secondary)';
+};
+
 
 
