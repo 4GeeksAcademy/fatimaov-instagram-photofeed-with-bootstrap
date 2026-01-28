@@ -1,4 +1,6 @@
 
+
+
 const modalTriggers = document.querySelectorAll('.modal-trigger');
 const modalTitles = document.querySelectorAll('.modal-h2');
 const modalCaptions = document.querySelectorAll('.modal-caption');
@@ -36,12 +38,7 @@ modalTriggers.forEach((x, i) => {
 
 
 
-// BS Tooltips
-const toolTips = document.querySelectorAll('.tt');
 
-toolTips.forEach(t => {
-    new bootstrap.Tooltip(t);
-})
 
 
 // Reload page when navbar logo is clicked
